@@ -1,50 +1,68 @@
-name: CI-CD-Pipeline-to-AWS-ElasticBeastalk
+# Name of the GitHub Actions workflow
+name: CI-CD-Pipeline-to-AWS-ElasticBeanstalk
+
+# Define environment variables for the workflow
 env:
-  EB_PACKAGE_S3_BUCKET_NAME : "my-flask-application-packages"
-  EB_APPLICATION_NAME       : "MyFlask"
-  EB_ENVIRONMENT_NAME       : "MyFlask-env"
-  DEPLOY_PACKAGE_NAME       : "flask_app_${{ github.sha }}.zip"
-  AWS_REGION_NAME           : "us-east-1"                          
+  EB_PACKAGE_S3_BUCKET_NAME: "my-flask-application-packages"
+  EB_APPLICATION_NAME: "MyFlask"
+  EB_ENVIRONMENT_NAME: "MyFlask-env"
+  DEPLOY_PACKAGE_NAME: "flask_app_${{ github.sha }}.zip"
+  AWS_REGION_NAME: "us-east-1"
+
+# Trigger the workflow on push events to the main branch
 on: 
   push:
     branches: 
       - main
 
+# Define the jobs to be executed in the workflow
 jobs:
+  # Job for Continuous Integration (CI) part
   my_ci_part:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest # Run this job on an Ubuntu environment
+    
     steps:
-    - name: Git clone our repo
-      uses: actions/checkout@v1
+      # Step 1: Checkout the repository
+      - name: Git clone our repo
+        uses: actions/checkout@v1
+        # Clones the repository for further operations
        
-    - name: Create ZIP deployment package
-      run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      # Step 2: Create a ZIP deployment package
+      - name: Create ZIP deployment package
+        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+        # Creates a ZIP package for deployment, excluding git files
       
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id    :  ${{ secrets.MY_AWS_ACCESS_KEY }}
-        aws-secret-access-key:  ${{ secrets.MY_AWS_SECRET_KEY }}
-        aws-region           :  ${{ env.AWS_REGION_NAME }} 
-        
-    - name: Copy Deployment package to S3 bucket
-      run : aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }}/
-
-    - name: Notify CI Pipeline Completion
-      run : echo "CI Pipeline completed successfully!"
-
+      # Step 3: Configure AWS Credentials for CI
+      - name: Configure AWS Credentials for CI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
+          aws-region: ${{ env.AWS_REGION_NAME }} 
+                
+      # Step 4: Copy new Deployment package to S3 bucket
+      - name: Copy Deployment package to S3 bucket
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }}/
+               
+      # Step 5: Notify CI Pipeline Completion
+      - name: Notify CI Pipeline Completion
+        run: echo "CI Pipeline completed successfully!"
+       
+  # Job for Continuous Deployment (CD) part
   my_cd_part:
    runs-on: ubuntu-latest
-   needs: [my_ci_part]
+   needs: [my_ci_part] # Ensure this job runs after the CI job
+
    steps:
-    - name: Configure AWS Credentials
+    # Step 1: Configure AWS Credentials for CD
+    - name: Configure AWS Credentials for CD
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
-        aws-region           :  ${{ env.AWS_REGION_NAME }}
-        
+        aws-region: ${{ env.AWS_REGION_NAME }}
+          
+    # Step 2: Create new ElasticBeanstalk Application Version
     - name: Create new ElasticBeanstalk Application Version
       run: |
         aws elasticbeanstalk create-application-version \
@@ -52,10 +70,12 @@ jobs:
         --source-bundle S3Bucket="${{ env.EB_PACKAGE_S3_BUCKET_NAME }}",S3Key="${{ env.DEPLOY_PACKAGE_NAME }}" \
         --version-label "Ver-${{ github.sha }}" \
         --description "CommitSHA-${{ github.sha }}"
-       
+                
+    # Step 3: Deploy new ElasticBeanstalk Application Version
     - name: Deploy new ElasticBeanstalk Application Version
       run: aws elasticbeanstalk update-environment --environment-name ${{ env.EB_ENVIRONMENT_NAME }} --version-label "Ver-${{ github.sha }}"
+      # Deploys the new version to the specified ElasticBeanstalk environment
       
+    # Step 4: Notify CD Pipeline Completion
     - name: Notify CD Pipeline Completion
       run: echo "CD Pipeline completed successfully!"
- 
