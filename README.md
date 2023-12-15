@@ -2,6 +2,10 @@
 Status of Last Deployment: <br>
 ![Workflow Status](https://github.com/DimitryZH/CI-CD-pipeline-GitHubActions-AWS-Beanstalk/actions/workflows/main.yml/badge.svg)
 
+## Technologies Used
+
+[![Python Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#) [![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](./index.html) [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](#) [![GitHubActions Badge](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](./.github/workflows/docker-image.yml) [![AWS Badge](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](#)
+
 ## Overview
 
 The main goal of this project is to demonstrate an effective CI/CD pipeline utilizing GitHub Actions for Python Flask applications. By incorporating GitHub Actions workflows, this project aims to automate the build, test, and deployment processes, minimizing manual intervention and enhancing overall deployment efficiency.
@@ -36,8 +40,8 @@ The CD part includes:
 
 You can access the deployed web applications below:
 
-- [Main Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/)
-- [Help Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/help)
+- [Main Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/){:target="_blank"}
+- [Help Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/help){:target="_blank"}
 
 ### Prerequisites:
 
@@ -73,6 +77,18 @@ This repository includes sample workflows demonstrating basic actions like print
 ## Diagram
 
 ![GitHub Actions ElasticBeanstalk](https://github.com/DimitryZH/CI-CD-pipeline-GitHubActions-AWS-Beanstalk/assets/146372946/025645ba-8e77-482a-b291-007449881c62)
+
+### CI/CD Pipeline Demonstration:
+
+This project's CI/CD pipeline demonstrates the automated deployment of updates to the deployed web application. A recent change to the `help.html` file triggered the GitHub Actions workflow, resulting in the deployment of a new version (v1.1) of the `/help` web page.
+
+#### Version Comparison:
+
+Below is a visual comparison between the previous version (v1.0) and the newly deployed version (v1.1) of the `/help` web page:
+
+![Version Comparison](<link to your image demonstrating version comparison>)
+
+The image showcases the changes made between the two versions. These alterations were seamlessly deployed using the CI/CD pipeline powered by GitHub Actions.
 
 ## Contribution
 
