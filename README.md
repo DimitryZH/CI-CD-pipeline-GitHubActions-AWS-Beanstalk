@@ -40,8 +40,8 @@ The CD part includes:
 
 You can access the deployed web applications below:
 
-- [Main Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/){:target="_blank"}
-- [Help Page](http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/help){:target="_blank"}
+- <a href="http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/" target="_blank">Main Page</a>
+- <a href="http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/help" target="_blank">Help Page</a>
 
 ### Prerequisites:
 
@@ -86,12 +86,12 @@ This project's CI/CD pipeline demonstrates the automated deployment of updates t
 
 Below is a visual comparison between the previous version (v1.0) and the newly deployed version (v1.1) of the `/help` web page:
 
-![Version Comparison](<link to your image demonstrating version comparison>)
-
+![versions](https://github.com/DimitryZH/CI-CD-pipeline-GitHubActions-AWS-Beanstalk/assets/146372946/4b39b86f-ed21-457e-a971-95528947084a)
 The image showcases the changes made between the two versions. These alterations were seamlessly deployed using the CI/CD pipeline powered by GitHub Actions.
 
 ## Contribution
 
 Contributions to this project are welcome! 
+
 
 
