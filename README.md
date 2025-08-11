@@ -9,6 +9,12 @@
 
 The main goal of this project is to demonstrate an effective CI/CD pipeline utilizing GitHub Actions for Python Flask applications. By incorporating GitHub Actions workflows, this project aims to automate the build, test, and deployment processes, minimizing manual intervention and enhancing overall deployment efficiency.
 
+## Overview
+
+The main goal of this project is to demonstrate an effective CI/CD pipeline utilizing GitHub Actions for Python Flask applications. By incorporating GitHub Actions workflows, this project aims to automate the build, test, and deployment processes, minimizing manual intervention and enhancing overall deployment efficiency.
+
+Also, it demonstrates how to create CI/CD workflow diagrams from GitHub Actions YAML files using Python scripting techniques.
+
 ## Workflow Description
 
 ### Continuous Integration (CI) Part
@@ -65,7 +71,7 @@ To integrate this CI/CD pipeline with your Python Flask application:
 
 ### Sample Workflows:
 
-This repository includes sample workflows demonstrating basic actions like printing messages, listing files, cloning repositories, and job dependencies. These workflows aim to provide a comprehensive understanding of YAML syntax, job dependencies, environment variables, and software testing within GitHub Actions.
+This repository includes sample workflows demonstrating  actions like printing messages, listing files, cloning repositories, and job dependencies. These workflows aim to provide a comprehensive understanding of job dependencies, environment variables, and software testing within GitHub Actions.
 
 
 ## High level diagram
@@ -81,7 +87,7 @@ Both diagrams were generated using Python scripts `generate_ci_cd_pipeline_diagr
 ### CI/CD Pipeline Diagram v1
 ![CI/CD Pipeline Diagram v1](ci_cd_pipeline_diagram_v1.png)
 
-#### CI/CD Pipeline Diagram v2
+### CI/CD Pipeline Diagram v2
 ![CI/CD Pipeline Diagram v2](ci_cd_pipeline_diagram_v2.png)
 
 ### CI/CD Pipeline Demonstration:
