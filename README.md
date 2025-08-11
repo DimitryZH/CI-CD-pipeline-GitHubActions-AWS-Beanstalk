@@ -9,10 +9,6 @@
 
 The main goal of this project is to demonstrate an effective CI/CD pipeline utilizing GitHub Actions for Python Flask applications. By incorporating GitHub Actions workflows, this project aims to automate the build, test, and deployment processes, minimizing manual intervention and enhancing overall deployment efficiency.
 
-## Overview
-
-The main goal of this project is to demonstrate an effective CI/CD pipeline utilizing GitHub Actions for Python Flask applications. By incorporating GitHub Actions workflows, this project aims to automate the build, test, and deployment processes, minimizing manual intervention and enhancing overall deployment efficiency.
-
 Also, it demonstrates how to create CI/CD workflow diagrams from GitHub Actions YAML files using Python scripting techniques.
 
 ## Workflow Description
