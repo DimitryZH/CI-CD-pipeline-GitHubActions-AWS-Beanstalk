@@ -1,6 +1,5 @@
 # CI/CD Pipeline to AWS Elastic Beanstalk for Python Flask Applications
-Status of Last Deployment: <br>
-![Workflow Status](https://github.com/DimitryZH/CI-CD-pipeline-GitHubActions-AWS-Beanstalk/actions/workflows/main.yml/badge.svg)
+
 
 ## Technologies Used
 
@@ -36,12 +35,6 @@ The CD part includes:
 
 ## Usage
 
-### Access Deployed Web Applications:
-
-You can access the deployed web applications below:
-
-- <a href="http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/" target="_blank">Main Page</a>
-- <a href="http://myflask-env.eba-pttmjwuz.us-east-1.elasticbeanstalk.com/help" target="_blank">Help Page</a>
 
 ### Prerequisites:
 
@@ -74,9 +67,22 @@ To integrate this CI/CD pipeline with your Python Flask application:
 
 This repository includes sample workflows demonstrating basic actions like printing messages, listing files, cloning repositories, and job dependencies. These workflows aim to provide a comprehensive understanding of YAML syntax, job dependencies, environment variables, and software testing within GitHub Actions.
 
-## Diagram
+
+## High level diagram
 
 ![GitHub Actions ElasticBeanstalk](https://github.com/DimitryZH/CI-CD-pipeline-GitHubActions-AWS-Beanstalk/assets/146372946/025645ba-8e77-482a-b291-007449881c62)
+
+
+## Detailed CI/CD Pipeline Diagram
+
+The following diagrams illustrate the GitHub Actions workflows used in this project.  
+Both diagrams were generated using Python scripts `generate_ci_cd_pipeline_diagram_v1.py` and `generate_ci_cd_pipeline_diagram_v2.py`.
+
+### CI/CD Pipeline Diagram v1
+![CI/CD Pipeline Diagram v1](ci_cd_pipeline_diagram_v1.png)
+
+#### CI/CD Pipeline Diagram v2
+![CI/CD Pipeline Diagram v2](ci_cd_pipeline_diagram_v2.png)
 
 ### CI/CD Pipeline Demonstration:
 
